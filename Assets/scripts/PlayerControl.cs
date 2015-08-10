@@ -3,7 +3,9 @@ using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
 
-	float Speed = 5;
+	public float Speed = 7;
+	public float JumpSpeed = 20;
+	public float Gravity = 9.8f;
 
 	void Update ()
 	{
