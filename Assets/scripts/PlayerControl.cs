@@ -5,7 +5,7 @@ public class PlayerControl : MonoBehaviour {
 
 	//player
 	public float Speed = 7;
-	public float JumpSpeed = 20f;
+	public float JumpSpeed = 9.8f;
 	public bool grounded;
 	public Transform JumpLineEnd;
 	
@@ -43,7 +43,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (KeyCode.Space) && grounded == true)
 		{
-			transform.Translate (Vector2.up * JumpSpeed * Time.deltaTime);
+			transform.Translate (Vector2.up * JumpSpeed);
 		}
 	}
 }
