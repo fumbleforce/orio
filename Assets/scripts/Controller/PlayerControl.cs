@@ -4,25 +4,12 @@ using System.Collections;
 public class PlayerControl : MonoBehaviour {
 
 	//player
-	public float Speed = 7;
-	public float JumpSpeed = 9.8f;
-	public bool grounded;
-	public Transform JumpLineEnd;
+	public float Speed = 2;
+	public float JumpSpeed = 1;
 	
 	void Update ()
 	{
-		Movement();
-		Raycasting ();
-	}
-
-	void Raycasting()
-	{
-		//draws the line
-		Debug.DrawLine (this.transform.position, JumpLineEnd.position, Color.red);
-
-		grounded = Physics2D.Linecast (this.transform.position, JumpLineEnd.position, 1 << LayerMask.NameToLayer ("Ground"));
-
-		Physics2D.IgnoreLayerCollision (8, 10);
+		Movement ();
 	}
 
 	void Movement()
@@ -41,9 +28,9 @@ public class PlayerControl : MonoBehaviour {
 			//flips the vector and sprite
 			transform.eulerAngles = new Vector2(0, 180);
 		}
-		if (Input.GetKeyDown (KeyCode.Space) && grounded == true)
+		if (Input.GetKey (KeyCode.Space))
 		{
-			transform.Translate (Vector2.up * JumpSpeed);
+			transform.Translate (Vector2.up * JumpSpeed * Time.deltaTime);
 		}
 	}
 }
